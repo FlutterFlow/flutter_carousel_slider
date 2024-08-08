@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as carousel;
 import 'package:flutter/material.dart';
 
 final List<String> imgList = [
@@ -111,8 +111,8 @@ class BasicDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Basic demo')),
       body: Container(
-          child: CarouselSlider(
-        options: CarouselOptions(),
+          child: carousel.CarouselSlider(
+        options: carousel.CarouselOptions(),
         items: list
             .map((item) => Container(
                   child: Center(child: Text(item.toString())),
@@ -131,8 +131,8 @@ class NoCenterDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Basic demo')),
       body: Container(
-          child: CarouselSlider(
-        options: CarouselOptions(
+          child: carousel.CarouselSlider(
+        options: carousel.CarouselOptions(
           disableCenter: true,
         ),
         items: list
@@ -152,8 +152,8 @@ class ImageSliderDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Image slider demo')),
       body: Container(
-          child: CarouselSlider(
-        options: CarouselOptions(),
+          child: carousel.CarouselSlider(
+        options: carousel.CarouselOptions(),
         items: imgList
             .map((item) => Container(
                   child: Center(
@@ -214,8 +214,8 @@ class ComplicatedImageDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Complicated image slider demo')),
       body: Container(
-        child: CarouselSlider(
-          options: CarouselOptions(
+        child: carousel.CarouselSlider(
+          options: carousel.CarouselOptions(
             autoPlay: true,
             aspectRatio: 2.0,
             enlargeCenterPage: true,
@@ -233,12 +233,12 @@ class EnlargeStrategyDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Complicated image slider demo')),
       body: Container(
-        child: CarouselSlider(
-          options: CarouselOptions(
+        child: carousel.CarouselSlider(
+          options: carousel.CarouselOptions(
             autoPlay: true,
             aspectRatio: 2.0,
             enlargeCenterPage: true,
-            enlargeStrategy: CenterPageEnlargeStrategy.height,
+            enlargeStrategy: carousel.CenterPageEnlargeStrategy.height,
           ),
           items: imageSliders,
         ),
@@ -255,7 +255,7 @@ class ManuallyControlledSlider extends StatefulWidget {
 }
 
 class _ManuallyControlledSliderState extends State<ManuallyControlledSlider> {
-  final CarouselController _controller = CarouselController();
+  final carousel.CarouselController _controller = carousel.CarouselController();
 
   @override
   void initState() {
@@ -269,9 +269,10 @@ class _ManuallyControlledSliderState extends State<ManuallyControlledSlider> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              CarouselSlider(
+              carousel.CarouselSlider(
                 items: imageSliders,
-                options: CarouselOptions(enlargeCenterPage: true, height: 200),
+                options: carousel.CarouselOptions(
+                    enlargeCenterPage: true, height: 200),
                 carouselController: _controller,
               ),
               Row(
@@ -311,8 +312,8 @@ class NoonLoopingDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Noon-looping carousel demo')),
       body: Container(
-          child: CarouselSlider(
-        options: CarouselOptions(
+          child: carousel.CarouselSlider(
+        options: carousel.CarouselOptions(
           aspectRatio: 2.0,
           enlargeCenterPage: true,
           enableInfiniteScroll: false,
@@ -331,8 +332,8 @@ class VerticalSliderDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Vertical sliding carousel demo')),
       body: Container(
-          child: CarouselSlider(
-        options: CarouselOptions(
+          child: carousel.CarouselSlider(
+        options: carousel.CarouselOptions(
           aspectRatio: 2.0,
           enlargeCenterPage: true,
           scrollDirection: Axis.vertical,
@@ -352,8 +353,8 @@ class FullscreenSliderDemo extends StatelessWidget {
       body: Builder(
         builder: (context) {
           final double height = MediaQuery.of(context).size.height;
-          return CarouselSlider(
-            options: CarouselOptions(
+          return carousel.CarouselSlider(
+            options: carousel.CarouselOptions(
               height: height,
               viewportFraction: 1.0,
               enlargeCenterPage: false,
@@ -382,9 +383,9 @@ class OnDemandCarouselDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('On-demand carousel demo')),
       body: Container(
-          child: CarouselSlider.builder(
+          child: carousel.CarouselSlider.builder(
         itemCount: 100,
-        options: CarouselOptions(
+        options: carousel.CarouselOptions(
           aspectRatio: 2.0,
           enlargeCenterPage: true,
           autoPlay: true,
@@ -408,7 +409,7 @@ class CarouselWithIndicatorDemo extends StatefulWidget {
 
 class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
   int _current = 0;
-  final CarouselController _controller = CarouselController();
+  final carousel.CarouselController _controller = carousel.CarouselController();
 
   @override
   Widget build(BuildContext context) {
@@ -416,10 +417,10 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
       appBar: AppBar(title: Text('Carousel with indicator controller demo')),
       body: Column(children: [
         Expanded(
-          child: CarouselSlider(
+          child: carousel.CarouselSlider(
             items: imageSliders,
             carouselController: _controller,
-            options: CarouselOptions(
+            options: carousel.CarouselOptions(
                 autoPlay: true,
                 enlargeCenterPage: true,
                 aspectRatio: 2.0,
@@ -487,9 +488,9 @@ class _PrefetchImageDemoState extends State<PrefetchImageDemo> {
     return Scaffold(
       appBar: AppBar(title: Text('Prefetch image slider demo')),
       body: Container(
-          child: CarouselSlider.builder(
+          child: carousel.CarouselSlider.builder(
         itemCount: images.length,
-        options: CarouselOptions(
+        options: carousel.CarouselOptions(
           autoPlay: true,
           aspectRatio: 2.0,
           enlargeCenterPage: true,
@@ -515,9 +516,10 @@ class CarouselChangeReasonDemo extends StatefulWidget {
 
 class _CarouselChangeReasonDemoState extends State<CarouselChangeReasonDemo> {
   String reason = '';
-  final CarouselController _controller = CarouselController();
+  final carousel.CarouselController _controller = carousel.CarouselController();
 
-  void onPageChange(int index, CarouselPageChangedReason changeReason) {
+  void onPageChange(
+      int index, carousel.CarouselPageChangedReason changeReason) {
     setState(() {
       reason = changeReason.toString();
     });
@@ -530,9 +532,9 @@ class _CarouselChangeReasonDemoState extends State<CarouselChangeReasonDemo> {
         body: Column(
           children: <Widget>[
             Expanded(
-              child: CarouselSlider(
+              child: carousel.CarouselSlider(
                 items: imageSliders,
-                options: CarouselOptions(
+                options: carousel.CarouselOptions(
                   enlargeCenterPage: true,
                   aspectRatio: 16 / 9,
                   onPageChanged: onPageChange,
@@ -587,8 +589,8 @@ class KeepPageviewPositionDemo extends StatelessWidget {
       body: ListView.builder(itemBuilder: (ctx, index) {
         if (index == 3) {
           return Container(
-              child: CarouselSlider(
-            options: CarouselOptions(
+              child: carousel.CarouselSlider(
+            options: carousel.CarouselOptions(
               aspectRatio: 2.0,
               enlargeCenterPage: true,
               pageViewKey: PageStorageKey<String>('carousel_slider'),
@@ -616,8 +618,8 @@ class MultipleItemDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Multiple item in one slide demo')),
       body: Container(
-          child: CarouselSlider.builder(
-        options: CarouselOptions(
+          child: carousel.CarouselSlider.builder(
+        options: carousel.CarouselOptions(
           aspectRatio: 2.0,
           enlargeCenterPage: false,
           viewportFraction: 1,
@@ -649,11 +651,11 @@ class EnlargeStrategyZoomDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('enlarge strategy: zoom demo')),
       body: Container(
-        child: CarouselSlider(
-          options: CarouselOptions(
+        child: carousel.CarouselSlider(
+          options: carousel.CarouselOptions(
             aspectRatio: 2.0,
             enlargeCenterPage: true,
-            enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+            enlargeStrategy: carousel.CenterPageEnlargeStrategy.zoom,
             enlargeFactor: 0.4,
           ),
           items: imageSliders,

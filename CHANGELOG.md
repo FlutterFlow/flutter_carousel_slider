@@ -1,3 +1,8 @@
+# 4.2.2 fix naming conflict with Material CarouselController
+
+- [FIX] temporary remove `PointerDeviceKind.trackpad`
+- [FIX] fix `'double?'` type
+
 # 4.2.1
 
 - [FIX] temporary remove `PointerDeviceKind.trackpad`
